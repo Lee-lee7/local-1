@@ -1,0 +1,7 @@
+hello.content:
+  path: '/li/cats'
+  defaults:
+    _controller: '\Drupal\hello_world\Controller\HelloController::content'
+    _title: 'Hello'
+  requirements:
+    _permission: 'access content'

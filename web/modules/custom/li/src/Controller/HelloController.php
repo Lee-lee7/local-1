@@ -10,9 +10,7 @@ use Drupal\Core\Controller\ControllerBase;
 
 class HelloController extends ControllerBase {
 
-  /**
-   * Builds the response.
-   */
+ 
   public function build() {
     $form = \Drupal::formBuilder()->getForm('Drupal\li\Form\Liform');
     $build['content'] = [
@@ -35,9 +33,7 @@ class HelloController extends ControllerBase {
     return [$form, $cats];
   }
 
-  /**
-   * Getting data from the moliek table.
-   */
+ 
   public function getCats() {
     $database = \Drupal::database();
     $result = $database->select('li', 'l')

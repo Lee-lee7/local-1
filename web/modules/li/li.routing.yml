@@ -1,0 +1,8 @@
+hello.content:
+  path: "/li/cats"
+  defaults:
+    _title: 'Hello! You can add here a photo of your cat.'
+    _form: '\Drupal\li\Form\LiForm'
+    _controller: '\Drupal\li\Controller\HelloController::build'
+  requirements:
+    _permission: "access content"

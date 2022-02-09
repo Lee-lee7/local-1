@@ -1,0 +1,15 @@
+hello.content:
+  path: "/li/cats"
+  defaults:
+    _title: 'Hello! You can add here a photo of your cat.'
+    _controller: '\Drupal\li\Controller\HelloController::build'
+  requirements:
+    _permission: "access content"
+
+li.content:
+  path: "/li/cats/{{'id'}}/delete"
+  defaults:
+    _form: '\Drupal\li\Form\Lidelete'
+  requirements:
+    _permission: 'administer'
+    id: ^\d+$

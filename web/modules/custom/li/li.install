@@ -1,0 +1,53 @@
+<?php
+use \Drupal\Core\Database\Database;
+function li_shema(){
+    $shema['li']= array(
+        'description'=>'database li',
+        'fields' => array(
+            'id' => array(
+                'description' => 'ID',
+                'type'=>'bigint',
+                'unsigned'=>TRUE,
+                'not null'=>TRUE,
+            ),
+            'name' => array (
+                'type' => 'varchar',
+                'length' => 32,
+                'not null' => TRUE,
+                'description' => 'cats name',
+            ),
+            'email' => array(
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'description' => 'Email',
+                'not null'=>TRUE,
+                'default' => 0,
+            ),
+            'image' => [
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'description' => 'Cat`s photo',
+              ],
+              'timestamp' => [
+                'type' => 'datetime',
+                'not null' => TRUE,
+                'unsigned' => TRUE,
+                'description' => 'Date created.',
+              ],
+        ),
+        'primary key' => array('id'),
+    );
+    return $shema;
+}
+function moliek_uninstall($is_syncing) {
+    $database = Drupal::database();
+    $result = $database->select('li', 'l')
+      ->fields('l', ['image'])
+      ->execute();
+    foreach ($result as $cat) {
+      File::load($cat->image)->delete();
+    }
+  }
+  
